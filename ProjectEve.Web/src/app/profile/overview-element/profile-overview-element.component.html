@@ -1,0 +1,15 @@
+<div class="profile-element" *ngIf="profile">
+    <a routerLink="/profile/{{profile.userName}}">
+        <img [src]="profile.thumbnailUrl">
+        <div class="profile-info">
+            <div class="profile-info-row">
+                <div class="age">{{profile.age}}</div>
+                <div class="name">{{profile.userName}}</div>
+                <div class="gender">{{profile.gender}}</div>
+            </div>
+            <div class="profile-info-row center">
+                <div class="location">{{profile.location}}</div>
+            </div>
+        </div>
+    </a>
+</div>
