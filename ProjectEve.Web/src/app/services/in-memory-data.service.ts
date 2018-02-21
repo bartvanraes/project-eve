@@ -30,6 +30,13 @@ export class InMemoryDataService implements InMemoryDbService {
       { id: Guid.newGuid(), userName: 'Emperor12', age: 36, gender: Gender.Male, location: 'Belgium', thumbnailUrl: './assets/images/male-test.jpg' },
       { id: Guid.newGuid(), userName: 'Anita12', age: 40, gender: Gender.Female, location: 'USA', thumbnailUrl: './assets/images/female-test.jpg' }
     ];
+    const users = [
+      {id: Guid.newGuid(), name: 'Johnny'}
+    ]
+
+    const authenticate = [
+      {username: 'Johnny', token: '123456'}
+    ]
     return {profiles};
   }
 }

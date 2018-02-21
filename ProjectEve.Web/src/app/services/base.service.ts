@@ -3,6 +3,11 @@ import { of } from 'rxjs/observable/of';
 import { catchError, map, tap } from 'rxjs/operators';
 
 import { MessageService } from './message.service';
+import { HttpHeaders } from '@angular/common/http';
+
+export const httpOptions = {
+  headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+};
 
 export abstract class BaseService {
 

@@ -7,11 +7,13 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from '../../app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
 import { ClientSidePagination } from '../../utilities/client-side-pagination';
+import { PagingComponent } from '../common/paging/paging.component';
 
 @NgModule({
   declarations: [
     ProfileOverviewComponent,
-    ProfileOverviewElementComponent
+    ProfileOverviewElementComponent,
+    PagingComponent
   ],
   imports: [ 
       BrowserModule,

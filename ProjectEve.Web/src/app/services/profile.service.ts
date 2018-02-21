@@ -10,10 +10,6 @@ import { BaseService } from './base.service';
 import { ProfileDetail } from '../models/profile-detail';
 import { ProfileOverviewElement } from '../models/profile-overview-element';
 
-const httpOptions = {
-  headers: new HttpHeaders({ 'Content-Type': 'application/json' })
-};
-
 @Injectable()
 export class ProfileService extends BaseService {
     private profilesUrl = "api/profiles";
@@ -43,7 +39,7 @@ export class ProfileService extends BaseService {
                 const outcome = h ? `fetched` : `did not find`;
                 this.log(`${outcome} profile id=${id}`);
             }),
-            catchError(this.handleError<ProfileDetail>(`getHero id=${id}`))
+            catchError(this.handleError<ProfileDetail>(`getProfile id=${id}`))
         );
     }
 

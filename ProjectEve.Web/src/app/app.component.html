@@ -1,33 +1,44 @@
 <!--The content below is only a placeholder and can be replaced.-->
-<div class="master-page">
+<div class="master-page container">
   <div class="banner">
     TODO: Banner
   </div>
-  <div class="top-menu">
+  <nav class="navbar navbar-default top-menu">
     <div class="row">
-      <div class="left-menu">
-        <div class="logo"><h1>Project Eve</h1></div>        
+      <div class="navbar-header left-menu">
+        <div class="navbar-brand logo"><h1>Project Eve</h1></div>        
       </div>
-      <div class="center-menu">
-        <nav class="navigation-menu">
+      <ul class="nav navbar-nav center-menu">
+        <li>
           <a routerLink="/mostPopular">Most Popular</a>
+        </li>
+        <li>
           <a routerLink="/female">Female</a>
+        </li>
+        <li>
           <a routerLink="/male">Male</a>
-          <a routerLink="/couple">Couple</a>
-        </nav>
-      </div>
-      <div class="right-menu">
-        <button class="login">Login</button>
-        <button class="sign-up">Sign up</button>
-      </div>
+        </li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right right-menu">
+        <li>
+          <button mat-raise-button class="btn btn-default login" (click)="openLoginDialog()">Login</button>
+        </li>
+        <li>
+          <button class="btn btn-primary sign-up">Sign up</button>
+        </li>
+        
+      </ul>
     </div>
     
-    <div class="row">
-        <div class="slogan">Some cheesy slogan</div>
+    <div class="navbar-header left-menu row">
+        <div class="navbar-brand slogan">Some cheesy slogan</div>
       </div>
     
-  </div>
+  </nav>
 </div>
-<router-outlet></router-outlet>
+<div class="col-sm-12">
+  <router-outlet></router-outlet>
+</div>
+
 
 
