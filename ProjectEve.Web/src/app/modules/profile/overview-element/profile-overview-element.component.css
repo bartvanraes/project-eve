@@ -1,0 +1,34 @@
+.profile-element {
+    width: 200px;
+    height: 300px;
+    text-align: center;
+}
+
+.profile-element img {
+    width: 150px;
+    height: auto;
+    vertical-align: top;
+    display: inline-block;
+    *display: inline;
+}
+
+.profile-info {
+    width: 100%;
+    margin: 5px 0 5px 0;
+}
+
+.age {
+    float: left;
+    width: 20%;
+    text-align: right;
+}
+
+.name {
+    float: left;
+    width: 60%;
+}
+
+.gender {
+    float: left;
+    width: 10%;
+}

@@ -1,0 +1,10 @@
+.profile-overview {
+    text-align: justify;
+    -ms-text-justify: distribute-all-lines;
+    text-justify: distribute-all-lines;
+    width:100%;
+}
+
+.profile-overview-element-container {
+    display: inline-block;
+}

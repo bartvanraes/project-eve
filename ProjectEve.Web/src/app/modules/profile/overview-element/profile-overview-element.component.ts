@@ -1,6 +1,7 @@
 import { Component, Input } from '@angular/core';
+import { ProfileOverviewElement } from '../../../models/profile-overview-element';
 
-import { ProfileOverviewElement } from '../../models/profile-overview-element';
+
 
 @Component({
     selector: 'profile-overview-element',
