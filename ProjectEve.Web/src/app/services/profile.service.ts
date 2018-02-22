@@ -9,6 +9,7 @@ import { MessageService } from './message.service';
 import { BaseService } from './base.service';
 import { ProfileDetail } from '../models/profile-detail';
 import { ProfileOverviewElement } from '../models/profile-overview-element';
+import { Guid } from '../utilities/guid';
 
 @Injectable()
 export class ProfileService extends BaseService {
@@ -20,7 +21,7 @@ export class ProfileService extends BaseService {
             super(messageService); 
         }
 
-    getProfiles (): Observable<ProfileOverviewElement[]> {
+    getProfiles(): Observable<ProfileOverviewElement[]> {
         //return this.http.get<ProfileOverviewElement[]>(this.profileService);
         return this.http.get<ProfileOverviewElement[]>(this.profilesUrl)
             .pipe(
@@ -44,11 +45,20 @@ export class ProfileService extends BaseService {
     }
 
     /** GET ProfileDetail by id. Will 404 if id not found */
-    getProfile(id: number): Observable<ProfileDetail> {
-        const url = `${this.profilesUrl}/${id}`;
+    getProfile(id: Guid): Observable<ProfileDetail> {
+        const url = `${this.profilesUrl}/${id.ToString()}`;
         return this.http.get<ProfileDetail>(url).pipe(
-            tap(_ => this.log(`fetched profile id=${id}`)),
-            catchError(this.handleError<ProfileDetail>(`getProfile id=${id}`))
+            tap(_ => this.log(`fetched profile id=${id.ToString()}`)),
+            catchError(this.handleError<ProfileDetail>(`getProfile id=${id.ToString()}`))
+        );
+    }
+
+    /** GET ProfileDetail by name. Will 404 if id not found */
+    getProfileByName(name: string): Observable<ProfileDetail> {
+        const url = `${this.profilesUrl}/name/${name}`;
+        return this.http.get<ProfileDetail>(url).pipe(
+            tap(_ => this.log(`fetched profile name=${name}`)),
+            catchError(this.handleError<ProfileDetail>(`getProfile name=${name}`))
         );
     }
    

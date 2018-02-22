@@ -51,6 +51,9 @@ import { Overlay } from '@angular/cdk/overlay';
 import { LoginDialogComponent } from './modules/common/login-dialog/login-dialog.component';
 import { FormsModule } from '@angular/forms';
 import { CdkTableModule } from '@angular/cdk/table';
+import { ProfileDetailComponent } from './modules/profile/detail/profile-detail.component';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { fakeBackendProvider } from './services/fake-backend';
 
 /*All this just for Dialogs? Review it!*/
 @NgModule({
@@ -97,6 +100,7 @@ export class MaterialModule {}
   declarations: [
     AppComponent,
     HomeComponent,
+    ProfileDetailComponent,
     LoginDialogComponent
   ],
   imports: [
@@ -106,6 +110,7 @@ export class MaterialModule {}
     MaterialModule, 
     BrowserAnimationsModule, 
     FormsModule,  
+    NgbModule.forRoot(),
     HttpClientInMemoryWebApiModule.forRoot(
       InMemoryDataService, { dataEncapsulation: false }
     )
@@ -115,7 +120,10 @@ export class MaterialModule {}
     ClientSidePagination,
     UserService,
     AuthenticationService,
-    {provide: MAT_DIALOG_DEFAULT_OPTIONS, useValue: {hasBackdrop: false}}],
+    {provide: MAT_DIALOG_DEFAULT_OPTIONS, useValue: {hasBackdrop: false}},
+    // providers used to create fake backend
+    fakeBackendProvider
+  ],
   bootstrap: [AppComponent],
   entryComponents: [AppComponent, LoginDialogComponent]
 })

@@ -8,6 +8,8 @@ import { AppRoutingModule } from '../../app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
 import { ClientSidePagination } from '../../utilities/client-side-pagination';
 import { PagingComponent } from '../common/paging/paging.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { AuthGuard } from '../../guards/auth.guard';
 
 @NgModule({
   declarations: [
@@ -18,12 +20,16 @@ import { PagingComponent } from '../common/paging/paging.component';
   imports: [ 
       BrowserModule,
       AppRoutingModule,
-      HttpClientModule      
+      HttpClientModule,
+      NgbModule
     ],
     exports: [
         ProfileOverviewComponent,
         ProfileOverviewElementComponent
     ],
-  providers: [ProfileService, ClientSidePagination]
+  providers: [
+    ProfileService, 
+    ClientSidePagination,
+    AuthGuard]
 })
 export class ProfileModule { }

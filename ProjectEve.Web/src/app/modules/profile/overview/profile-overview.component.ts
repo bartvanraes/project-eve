@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { ProfileOverviewElement } from '../../../models/profile-overview-element';
 import { ProfileService } from '../../../services/profile.service';
 import { ClientSidePagination } from '../../../utilities/client-side-pagination';
+import { Guid } from '../../../utilities/guid';
 
 @Component({
     selector: 'profile-overview',
@@ -25,7 +26,8 @@ export class ProfileOverviewComponent implements OnInit {
         this.getProfiles()
     }
 
-    getProfiles(): void {
+    getProfiles(): void {       
+
         this.profileService.getProfiles()
         .subscribe(profiles => {
             this.allProfiles = profiles;

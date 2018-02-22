@@ -1,40 +1,60 @@
 <!--The content below is only a placeholder and can be replaced.-->
 <div class="master-page container">
-  <div class="banner">
-    TODO: Banner
+  <div class="row">
+    <div class="col-9">
+      <div class="banner">
+          TODO: Banner
+      </div>        
+    </div>
+    
   </div>
-  <nav class="navbar navbar-default top-menu">
-    <div class="row">
-      <div class="navbar-header left-menu">
-        <div class="navbar-brand logo"><h1>Project Eve</h1></div>        
-      </div>
-      <ul class="nav navbar-nav center-menu">
-        <li>
-          <a routerLink="/mostPopular">Most Popular</a>
+  
+  <nav class="navbar navbar-expand-lg navbar-light bg-light top-menu">
+      <ul class="nav navbar-nav center-menu mr-auto">
+        <li class="nav-item">
+          <div class="navbar-brand logo"><h1>Project Eve</h1></div>  
         </li>
-        <li>
-          <a routerLink="/female">Female</a>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/mostPopular">Most Popular</a>
         </li>
-        <li>
-          <a routerLink="/male">Male</a>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/female">Female</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/male">Male</a>
         </li>
       </ul>
-      <ul class="nav navbar-nav navbar-right right-menu">
+      <ul class="nav navbar-nav right-menu" *ngIf="currentUser == null">
         <li>
-          <button mat-raise-button class="btn btn-default login" (click)="openLoginDialog()">Login</button>
+          <button mat-raise-button class="btn btn-default login" 
+          (click)="openLoginDialog()">Login</button>
         </li>
         <li>
           <button class="btn btn-primary sign-up">Sign up</button>
         </li>
-        
-      </ul>
-    </div>
-    
-    <div class="navbar-header left-menu row">
-        <div class="navbar-brand slogan">Some cheesy slogan</div>
-      </div>
-    
+      </ul>      
+      <div class="card col-4 user-info" *ngIf="currentUser != null">
+          <div class="card-header row">
+            <div class="user-name mr-auto">
+              Welcome {{currentUser.name}}
+            </div>
+            <div class="">
+                <button mat-raise-button class="btn btn-default logout" (click)="logout()">Logout</button>
+            </div>      
+          </div>
+          <div class="card-body">
+            <div class="row">
+              <div class="numbered-circle">{{currentUser.numberOfNotifications}}</div>&nbsp;Notifications
+            </div>
+            <div class="row">
+              <div class="numbered-circle">{{currentUser.numberOfMessages}}</div>&nbsp;You have {{currentUser.tokens}} tokens &nbsp;<a class="more-tokens">(get more)</a>
+            </div>
+          </div>
+        </div>
   </nav>
+  <div class="seperate-row top-menu">
+    <div class="navbar-brand slogan">Some cheesy slogan</div>
+  </div>
 </div>
 <div class="col-sm-12">
   <router-outlet></router-outlet>

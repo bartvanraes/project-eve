@@ -1,6 +1,7 @@
 import { InMemoryDbService } from 'angular-in-memory-web-api';
 import { Guid } from '../utilities/guid';
 import { Gender } from '../shared/enums/gender';
+import { UserRole } from '../shared/enums/user-role';
 
 export class InMemoryDataService implements InMemoryDbService {
   createDb() {
@@ -31,12 +32,12 @@ export class InMemoryDataService implements InMemoryDbService {
       { id: Guid.newGuid(), userName: 'Anita12', age: 40, gender: Gender.Female, location: 'USA', thumbnailUrl: './assets/images/female-test.jpg' }
     ];
     const users = [
-      {id: Guid.newGuid(), name: 'Johnny'}
+      {id: Guid.parse('8aacad04-e19e-4eee-afcf-59879d3e572c'), name: 'Johnny', role: UserRole.Standard, numberOfNotifications: 12, numberOfMessages: 3, tokens: 123, token: ''}
     ]
 
     const authenticate = [
       {username: 'Johnny', token: '123456'}
     ]
-    return {profiles};
+    return {profiles, users};
   }
 }

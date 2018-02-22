@@ -6,7 +6,7 @@ export class Guid {
     private _guid: string;
 
     public ToString(): string {
-        return this.guid;
+        return this._guid;
     }
 
     static newGuid(): Guid {
@@ -14,5 +14,9 @@ export class Guid {
             var r = Math.random()*16|0, v = c == 'x' ? r : (r&0x3|0x8);
             return v.toString(16);
         }));
+    }
+
+    static parse(guid: string): Guid {
+        return new Guid(guid);
     }
 }

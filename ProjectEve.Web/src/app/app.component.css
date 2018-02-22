@@ -6,7 +6,6 @@
 }
 
 .top-menu {
-    border: 1px solid black;
     margin: 10px 0 10px 80px;
     padding: 10px;
 }
@@ -22,3 +21,25 @@
 .right-menu {
     padding-top: 50px;
 }
+
+.numbered-circle {
+   background: red;
+   border-radius: 0.8em;
+  -moz-border-radius: 0.8em;
+  -webkit-border-radius: 0.8em;
+  color: #ffffff;
+  display: inline-block;
+  font-weight: bold;
+  line-height: 1.6em;
+  margin-right: 15px;
+  text-align: center;
+  width: 1.6em; 
+  margin-bottom: 5px;
+}
+
+.logout {
+    font-size: 12px;
+    padding: 5px;
+}
+
+

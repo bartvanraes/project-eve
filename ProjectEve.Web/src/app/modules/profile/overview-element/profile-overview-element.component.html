@@ -1,14 +1,17 @@
-<div class="profile-element" *ngIf="profile">
+<div class="card profile-element" *ngIf="profile">
     <a routerLink="/profile/{{profile.userName}}">
-        <img [src]="profile.thumbnailUrl">
-        <div class="profile-info">
+        
+        <div class="card-body profile-info">
+            <div class="image-container">
+                <img class="card-img-bottom" [src]="profile.thumbnailUrl">
+            </div>            
             <div class="row">
-                <div class="age">{{profile.age}}</div>
-                <div class="name">{{profile.userName}}</div>
+                <div class="card-text age">{{profile.age}}</div>
+                <h5 class="card-title name">{{profile.userName}}</h5>
                 <div class="gender">{{profile.gender}}</div>
             </div>
-            <div class="row center">
-                <div class="location">{{profile.location}}</div>
+            <div class="row justify-content-center">
+                <div class="card-text location">{{profile.location}}</div>
             </div>
         </div>
     </a>
