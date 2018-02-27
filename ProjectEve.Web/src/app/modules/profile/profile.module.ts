@@ -10,6 +10,7 @@ import { ClientSidePagination } from '../../utilities/client-side-pagination';
 import { PagingComponent } from '../common/paging/paging.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AuthGuard } from '../../guards/auth.guard';
+import { CommonModule } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { AuthGuard } from '../../guards/auth.guard';
       BrowserModule,
       AppRoutingModule,
       HttpClientModule,
-      NgbModule
+      NgbModule,
+      CommonModule
     ],
     exports: [
         ProfileOverviewComponent,

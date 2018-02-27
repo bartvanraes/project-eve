@@ -31,7 +31,7 @@ export class UserService extends BaseService {
         //return this.http.get(this.usersUrl + '/' + id);
 
         //TEMP SOLUTION FOR MOCKS
-        let currentUser = this.getUsers().pipe(
+        /*let currentUser = this.getUsers().pipe(
             map(users => users[0]), // returns a {0|1} element array
             tap(h => {
                 const outcome = h ? `fetched` : `did not find`;
@@ -41,7 +41,7 @@ export class UserService extends BaseService {
         );
 
 
-        return currentUser;
+        return currentUser;*/
         //END TEMP
 
 

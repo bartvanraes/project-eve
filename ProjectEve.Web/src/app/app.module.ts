@@ -54,6 +54,8 @@ import { CdkTableModule } from '@angular/cdk/table';
 import { ProfileDetailComponent } from './modules/profile/detail/profile-detail.component';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { fakeBackendProvider } from './services/fake-backend';
+import { JwtInterceptor } from './services/helpers/jwt-interceptor';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
 
 /*All this just for Dialogs? Review it!*/
 @NgModule({
@@ -119,6 +121,11 @@ export class MaterialModule {}
     MessageService, 
     ClientSidePagination,
     UserService,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: JwtInterceptor,
+      multi: true
+    },
     AuthenticationService,
     {provide: MAT_DIALOG_DEFAULT_OPTIONS, useValue: {hasBackdrop: false}},
     // providers used to create fake backend

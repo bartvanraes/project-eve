@@ -1,0 +1,79 @@
+.profile-pic {
+    width: 150px;
+    height: auto;
+    vertical-align: top;
+    display: inline-block;
+    *display: inline;
+}
+
+.profile-card {
+    width: 90%;
+    float: right;
+}
+
+.profile-top-info {
+    height: 240px;
+}
+
+.tags {
+    height: 100px;
+}
+
+.profile-top-info h2 {
+    margin-top: 20px;
+}
+
+.age {
+    padding-left: 0px;
+}
+
+.info-and-preferences .row {
+    margin-bottom: 10px;
+}
+
+h4 {
+    font-size: 15px;
+}
+
+h6 {
+    font-size: 12px;
+}
+
+.public-profile-button {
+    width: 95%;
+    margin-bottom: 5px;
+}
+
+.red {
+    margin-left: 2px;
+    margin-right: 2px;
+    color: red;
+}
+
+.tip-for-profile-container {
+    position: relative;
+    min-height: 35px;
+    width: 95%;
+    margin-top: 25px;
+}
+
+.tip-for-profile {
+    font-size: 12px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+
+.tip-for-profile-container a {
+    float: right;
+}
+
+.profile-content {
+    float: right;
+    width: 95%;
+}
+
+.profile-content h3 {
+    font-size: 20px;
+    margin-top: 50px;
+}

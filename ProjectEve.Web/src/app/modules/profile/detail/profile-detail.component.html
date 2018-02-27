@@ -1,1 +1,92 @@
-<div>TEST</div>
+<div class="profile-page">
+    <div class="card profile-card">
+        <div class="card-body profile-top-info">
+            <div class="row">                
+                <div class="col-lg-2">
+                    <div ng-class="{'very-active': true, 'active': false, 'inactive': false}"></div>
+                    <img class="profile-pic" [src]='profile.thumbnailUrl'>
+                </div>
+                <div class="col-lg-3">
+                    <div class="card row">
+                        <div class="card-body tags">
+                            <div class="row">
+                                <div *ngFor="let tag of profile.tags">
+                                    {{tag}}
+                                </div>
+                            </div>
+                           
+                        </div>
+                    </div>
+                    <div class="row">
+                            <h2>{{profile.userName}}</h2>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-2 age">
+                            <div class="float-left">{{profile.age}}</div>
+                        </div>
+                        <div class="col-lg-6 location">
+                            {{profile.location}}
+                        </div>
+                        <div class="col-lg-2">
+                            ...
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 info-and-preferences">
+                    <div class="row">
+                        {{orientationTranslation}}, {{genderTranslation}}, {{relationshipStatusTranslation}}, {{profile.height}}cm
+                    </div>
+                    <div class="row">
+                        Speaks: <div *ngFor="let lang of translatedLanguages">{{lang}}</div>
+                    </div>
+                    <div class="row">
+                        <div *ngIf="profile.wantsToChat">Wants to chat</div>
+                        <div *ngIf="!profile.wantsToChat">Prefers not to chat</div>
+                    </div>
+                    <div class="row">
+                        <div *ngIf="profile.wantsToTradePics">Wants to trade pictures</div>
+                        <div *ngIf="!profile.wantsToTradePics">Doesn't want to trade pictures</div>
+                    </div>
+                    <div class="row">
+                        <div *ngIf="profile.wantsToMeetIRL">Is open to meet in real life</div>
+                        <div *ngIf="!profile.wantsToMeetIRL">Not interested in meeting in real life</div>
+                    </div>
+                    <div class="row">
+                        Last online: {{profile.lastOnline}}
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="row">
+                        <a href="#" class="btn btn-primary btn-lg public-profile-button" role="button"><h4>ASK TO SEE MORE</h4><h6>if {{profile.userName}} likes you, <br> you are allowed to see each other's full profile</h6></a>
+                    </div>
+                    <div class="row">
+                        <a href="#" class="btn btn-primary btn-lg public-profile-button" role="button"><h4>INVITE {{him_her | uppercase }} TO YOUR PRIVATE PROFILE</h4></a>
+                    </div>
+                    <div *ngIf="profile.tokensToAccessFullProfile > 0" class="row">
+                        <div class="tip-for-profile-container">
+                            <div class="tip-for-profile">for <span class="red">{{profile.tokensToAccessFullProfile}}</span> tokens you can see {{his_her}} full profile.</div>
+                            <a href="#" class="btn btn-secondary btn-sm" role="button">tip {{profile.tokensToAccessFullProfile}} tks</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row profile-content">
+        <div class="col-lg-5">
+            <h3>About me</h3>
+            <p class="line-breaker">{{profile.aboutMe}}</p>
+            <h3>My interests</h3>
+            <p>{{profile.myInterests}}</p>
+            <div *ngIf="profile.numberOfPublicBlogPosts > 0">
+                <h3>Blog posts: {{profile.numberOfPublicBlogPosts}}</h3>
+                <p>Most recent blog post: <br>...</p>
+            </div>
+            <p>I have {{profile.numberOfPrivateBlogPosts}} private blog posts</p>
+        </div>
+        <div class="col-lg-7">
+            <h3>My public pictures</h3>
+            <h3>My private pictures</h3>
+        </div>
+    </div>
+</div>

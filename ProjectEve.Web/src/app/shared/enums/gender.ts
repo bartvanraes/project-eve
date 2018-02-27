@@ -6,5 +6,3 @@ export enum Gender {
     CoupleMF = 5,
     Trans = 6
 }
-
-export class FakeClass {}

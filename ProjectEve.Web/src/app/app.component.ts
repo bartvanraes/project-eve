@@ -64,7 +64,9 @@ export class AppComponent {
   login(successful: boolean) {
     let userId = Guid.parse(JSON.parse(localStorage.getItem('currentUser')).id.guid);    
 
-    this.userService.getUser(userId).subscribe(user => this.currentUser = user);
+    this.userService.getUser(userId).subscribe(user => {
+        this.currentUser = user
+      });
   }
 
   logout() {
