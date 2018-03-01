@@ -56,6 +56,7 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { fakeBackendProvider } from './services/fake-backend';
 import { JwtInterceptor } from './services/helpers/jwt-interceptor';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { KeyPipe } from './utilities/pipes/key-pipe';
 
 /*All this just for Dialogs? Review it!*/
 @NgModule({
@@ -103,7 +104,8 @@ export class MaterialModule {}
     AppComponent,
     HomeComponent,
     ProfileDetailComponent,
-    LoginDialogComponent
+    LoginDialogComponent,
+    KeyPipe
   ],
   imports: [
     BrowserModule,

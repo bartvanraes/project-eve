@@ -8,6 +8,7 @@ import { GenderConverter } from "../../../shared/enum-converters/gender-converte
 import { RelationshipStatusConverter } from "../../../shared/enum-converters/relationship-status-converter";
 import { LanguageConverter } from "../../../shared/enum-converters/language-converter";
 import { Gender } from "../../../shared/enums/gender";
+import { ProfileDetailPrivate } from "../../../models/profile-detail-private";
 
 @Component({
     selector: 'profile-detail',
@@ -15,7 +16,8 @@ import { Gender } from "../../../shared/enums/gender";
     styleUrls: ['./profile-detail.component.css']
 })
 export class ProfileDetailComponent implements OnInit {
-    @Input() profile: ProfileDetail;
+    //@Input() profile: ProfileDetail;
+    public profile: ProfileDetail;
     public orientationTranslation: string;
     public genderTranslation: string;
     public relationshipStatusTranslation: string;
@@ -23,6 +25,7 @@ export class ProfileDetailComponent implements OnInit {
 
     public him_her: string;
     public his_her: string;
+    public isPrivate: boolean;
 
 
     constructor(
@@ -32,7 +35,7 @@ export class ProfileDetailComponent implements OnInit {
     ) { }
 
     ngOnInit(): void {
-        this.getProfile();
+        this.getProfile();        
     }
 
     getProfile(): void {
@@ -68,7 +71,9 @@ export class ProfileDetailComponent implements OnInit {
                         this.him_her = profile.userName; //what other options do we have?
                         this.his_her = profile.userName + '\'s';
                         break;
-                }                
+                }   
+                
+                this.isPrivate = profile.isPrivate;
                 
             });
 

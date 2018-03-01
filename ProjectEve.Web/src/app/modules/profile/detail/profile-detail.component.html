@@ -1,10 +1,10 @@
-<div class="profile-page">
+<div *ngIf="profile" class="profile-page">
     <div class="card profile-card">
         <div class="card-body profile-top-info">
             <div class="row">                
                 <div class="col-lg-2">
                     <div ng-class="{'very-active': true, 'active': false, 'inactive': false}"></div>
-                    <img class="profile-pic" [src]='profile.thumbnailUrl'>
+                    <img class="profile-pic" [src]='profile.profilePicture.thumbnailUrl'>
                 </div>
                 <div class="col-lg-3">
                     <div class="card row">
@@ -55,7 +55,7 @@
                         Last online: {{profile.lastOnline}}
                     </div>
                 </div>
-                <div class="col-lg-4">
+                <div *ngIf="!isPrivate" class="col-lg-4">
                     <div class="row">
                         <a href="#" class="btn btn-primary btn-lg public-profile-button" role="button"><h4>ASK TO SEE MORE</h4><h6>if {{profile.userName}} likes you, <br> you are allowed to see each other's full profile</h6></a>
                     </div>
@@ -66,6 +66,16 @@
                         <div class="tip-for-profile-container">
                             <div class="tip-for-profile">for <span class="red">{{profile.tokensToAccessFullProfile}}</span> tokens you can see {{his_her}} full profile.</div>
                             <a href="#" class="btn btn-secondary btn-sm" role="button">tip {{profile.tokensToAccessFullProfile}} tks</a>
+                        </div>
+                    </div>
+                </div>
+                <div *ngIf="isPrivate" class="col-lg-4">
+                    <div class="row">
+                        <div class="col-lg-6">
+                            Like {{him_her}}? <a href="#" class="btn btn-primary private-profile-button" role="button"><h4>TIP {{him_her | uppercase}}!</h4></a>
+                        </div>
+                        <div class="col-lg-6">
+                            <a href="#" class="glyphicon glyphicon-envelope" role="button">Send {{him_her}} a message!</a>
                         </div>
                     </div>
                 </div>
@@ -82,11 +92,21 @@
                 <h3>Blog posts: {{profile.numberOfPublicBlogPosts}}</h3>
                 <p>Most recent blog post: <br>...</p>
             </div>
-            <p>I have {{profile.numberOfPrivateBlogPosts}} private blog posts</p>
+            <p *ngIf="!isPrivate">I have {{profile.numberOfPrivateBlogPosts}} private blog posts</p>
         </div>
         <div class="col-lg-7">
             <h3>My public pictures</h3>
+            <div class="pictures">
+                <img class="picture" [src]="pic.thumbnailUrl" *ngFor="let pic of profile.publicPictures">
+            </div>
             <h3>My private pictures</h3>
+            <div *ngIf="!isPrivate && profile.numberOfPrivatePictures > 0" class="pictures">
+                    <img class="picture" src="./assets/images/question-mark.png" *ngFor="let key of profile.numberOfPrivatePictures | keys">
+            </div>
+            <div *ngIf="!isPrivate">I have <b>{{profile.numberOfPrivatePictures}}</b> private pictures and <b>{{profile.numberOfPrivateBlogPosts}}</b> private blog posts</div>
+            <div *ngIf="isPrivate" class="pictures">
+                <img class="picture" [src]="pic.thumbnailUrl" *ngFor="let pic of profile.privatePictures">
+            </div>
         </div>
     </div>
 </div>

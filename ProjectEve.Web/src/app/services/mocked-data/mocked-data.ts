@@ -7,43 +7,69 @@ import { ProfileDetail } from "../../models/profile-detail";
 import { RelationshipStatus } from "../../shared/enums/relationship-status";
 import { Orientation } from "../../shared/enums/orientation";
 import { Language } from "../../shared/enums/language";
+import { ProfileDetailPrivate } from "../../models/profile-detail-private";
+import { Picture } from "../../models/picture";
 
 export class MockedData {
     public static PROFILES: ProfileOverviewElement[] = [
-      { id: Guid.newGuid(), userName: 'Emperor1', age: 36, gender: Gender.Male, location: 'Belgium', thumbnailUrl: './assets/images/male-test.jpg' },
-      { id: Guid.newGuid(), userName: 'Anita1', age: 40, gender: Gender.Female, location: 'USA', thumbnailUrl: './assets/images/female-test.jpg' },
-      { id: Guid.newGuid(), userName: 'Emperor2', age: 36, gender: Gender.Male, location: 'Belgium', thumbnailUrl: './assets/images/male-test.jpg' },
-      { id: Guid.newGuid(), userName: 'Anita2', age: 40, gender: Gender.Female, location: 'USA', thumbnailUrl: './assets/images/female-test.jpg' },
-      { id: Guid.newGuid(), userName: 'Emperor3', age: 36, gender: Gender.Male, location: 'Belgium', thumbnailUrl: './assets/images/male-test.jpg' },
-      { id: Guid.newGuid(), userName: 'Anita3', age: 40, gender: Gender.Female, location: 'USA', thumbnailUrl: './assets/images/female-test.jpg' },
-      { id: Guid.newGuid(), userName: 'Emperor4', age: 36, gender: Gender.Male, location: 'Belgium', thumbnailUrl: './assets/images/male-test.jpg' },
-      { id: Guid.newGuid(), userName: 'Anita4', age: 40, gender: Gender.Female, location: 'USA', thumbnailUrl: './assets/images/female-test.jpg' },
-      { id: Guid.newGuid(), userName: 'Emperor5', age: 36, gender: Gender.Male, location: 'Belgium', thumbnailUrl: './assets/images/male-test.jpg' },
-      { id: Guid.newGuid(), userName: 'Anita5', age: 40, gender: Gender.Female, location: 'USA', thumbnailUrl: './assets/images/female-test.jpg' },
-      { id: Guid.newGuid(), userName: 'Emperor6', age: 36, gender: Gender.Male, location: 'Belgium', thumbnailUrl: './assets/images/male-test.jpg' },
-      { id: Guid.newGuid(), userName: 'Anita6', age: 40, gender: Gender.Female, location: 'USA', thumbnailUrl: './assets/images/female-test.jpg' },
-      { id: Guid.newGuid(), userName: 'Emperor7', age: 36, gender: Gender.Male, location: 'Belgium', thumbnailUrl: './assets/images/male-test.jpg' },
-      { id: Guid.newGuid(), userName: 'Anita7', age: 40, gender: Gender.Female, location: 'USA', thumbnailUrl: './assets/images/female-test.jpg' },
-      { id: Guid.newGuid(), userName: 'Emperor8', age: 36, gender: Gender.Male, location: 'Belgium', thumbnailUrl: './assets/images/male-test.jpg' },
-      { id: Guid.newGuid(), userName: 'Anita8', age: 40, gender: Gender.Female, location: 'USA', thumbnailUrl: './assets/images/female-test.jpg' },
-      { id: Guid.newGuid(), userName: 'Emperor9', age: 36, gender: Gender.Male, location: 'Belgium', thumbnailUrl: './assets/images/male-test.jpg' },
-      { id: Guid.newGuid(), userName: 'Anita9', age: 40, gender: Gender.Female, location: 'USA', thumbnailUrl: './assets/images/female-test.jpg' },
-      { id: Guid.newGuid(), userName: 'Emperor10', age: 36, gender: Gender.Male, location: 'Belgium', thumbnailUrl: './assets/images/male-test.jpg' },
-      { id: Guid.newGuid(), userName: 'Anita10', age: 40, gender: Gender.Female, location: 'USA', thumbnailUrl: './assets/images/female-test.jpg' },
-      { id: Guid.newGuid(), userName: 'Emperor11', age: 36, gender: Gender.Male, location: 'Belgium', thumbnailUrl: './assets/images/male-test.jpg' },
-      { id: Guid.newGuid(), userName: 'Anita11', age: 40, gender: Gender.Female, location: 'USA', thumbnailUrl: './assets/images/female-test.jpg' },
-      { id: Guid.newGuid(), userName: 'Emperor12', age: 36, gender: Gender.Male, location: 'Belgium', thumbnailUrl: './assets/images/male-test.jpg' },
-      { id: Guid.newGuid(), userName: 'Anita12', age: 40, gender: Gender.Female, location: 'USA', thumbnailUrl: './assets/images/female-test.jpg' }
+      new ProfileOverviewElement(Guid.newGuid(), 'Emperor1', 36, Gender.Male, 'Belgium', './assets/images/male-test.jpg'),
+      new ProfileOverviewElement(Guid.newGuid(), 'Anita1', 40, Gender.Female, 'USA', './assets/images/female-test.jpg'),
+      new ProfileOverviewElement(Guid.newGuid(), 'Emperor2', 36, Gender.Male, 'Belgium', './assets/images/male-test.jpg'),
+      new ProfileOverviewElement(Guid.newGuid(), 'Anita2', 40, Gender.Female, 'USA', './assets/images/female-test.jpg'),
+      new ProfileOverviewElement(Guid.newGuid(), 'Emperor3', 36, Gender.Male, 'Belgium', './assets/images/male-test.jpg'),
+      new ProfileOverviewElement(Guid.newGuid(), 'Anita3', 40, Gender.Female, 'USA', './assets/images/female-test.jpg'),
+      new ProfileOverviewElement(Guid.newGuid(), 'Emperor4', 36, Gender.Male, 'Belgium', './assets/images/male-test.jpg'),
+      new ProfileOverviewElement(Guid.newGuid(), 'Anita4', 40, Gender.Female, 'USA', './assets/images/female-test.jpg'),
+      new ProfileOverviewElement(Guid.newGuid(), 'Emperor5', 36, Gender.Male, 'Belgium', './assets/images/male-test.jpg'),
+      new ProfileOverviewElement(Guid.newGuid(), 'Anita5', 40, Gender.Female, 'USA', './assets/images/female-test.jpg'),
+      new ProfileOverviewElement(Guid.newGuid(), 'Emperor6', 36, Gender.Male, 'Belgium', './assets/images/male-test.jpg'),
+      new ProfileOverviewElement(Guid.newGuid(), 'Anita6', 40, Gender.Female, 'USA', './assets/images/female-test.jpg'),
+      new ProfileOverviewElement(Guid.newGuid(), 'Emperor7', 36, Gender.Male, 'Belgium', './assets/images/male-test.jpg'),
+      new ProfileOverviewElement(Guid.newGuid(), 'Anita7', 40, Gender.Female, 'USA', './assets/images/female-test.jpg'),
+      new ProfileOverviewElement(Guid.newGuid(), 'Emperor8', 36, Gender.Male, 'Belgium', './assets/images/male-test.jpg'),
+      new ProfileOverviewElement(Guid.newGuid(), 'Anita8', 40, Gender.Female, 'USA', './assets/images/female-test.jpg'),
+      new ProfileOverviewElement(Guid.newGuid(), 'Emperor9', 36, Gender.Male, 'Belgium', './assets/images/male-test.jpg'),
+      new ProfileOverviewElement(Guid.newGuid(), 'Anita9', 40, Gender.Female, 'USA', './assets/images/female-test.jpg'),
+      new ProfileOverviewElement(Guid.newGuid(), 'Emperor10', 36, Gender.Male, 'Belgium', './assets/images/male-test.jpg'),
+      new ProfileOverviewElement(Guid.newGuid(), 'Anita10', 40, Gender.Female, 'USA', './assets/images/female-test.jpg'),
+      new ProfileOverviewElement(Guid.newGuid(), 'Emperor11', 36, Gender.Male, 'Belgium', './assets/images/male-test.jpg'),
+      new ProfileOverviewElement(Guid.newGuid(), 'Anita11', 40, Gender.Female, 'USA', './assets/images/female-test.jpg'),
+      new ProfileOverviewElement(Guid.newGuid(), 'Emperor12', 36, Gender.Male, 'Belgium', './assets/images/male-test.jpg'),
+      new ProfileOverviewElement(Guid.newGuid(), 'Anita12', 40, Gender.Female, 'USA', './assets/images/female-test.jpg')
     ]
+    
 
     public static PROFILE_DETAIL: ProfileDetail[] = [
-      { id: Guid.newGuid(), userName: 'Emperor1', age: 36, gender: Gender.Male, location: 'Belgium', thumbnailUrl: './assets/images/male-test.jpg', 
-      orientation: Orientation.Straight, status: RelationshipStatus.Single, height: 178, wantsToChat: true, wantsToTradePics: true, wantsToMeetIRL: true, 
-      lastOnline: '2018-02-23T18:25:43.511Z', tags: ['Metalhead', 'Gamer', 'Traveller'], languages: [Language.English, Language.Dutch], tokensToAccessFullProfile: 20,
-      numberOfPublicBlogPosts: 8, numberOfPrivateBlogPosts: 2, 
-      aboutMe: 'Here comes a long description of what I\'m doing on this website \n\n With a lot of text spread over multiple paragraphs.',
-      myInterests: 'All the weird and nerdy stuff comes here.' }
-    ]
+      new ProfileDetail(Guid.newGuid(), 'Emperor1', Gender.Male, 36, new Picture(Guid.newGuid(), './assets/images/male-test.jpg', './assets/images/male-test.jpg'), 
+      'Belgium', ['Metalhead', 'Gamer', 'Traveller'], [Language.English, Language.Dutch], Orientation.Straight, RelationshipStatus.Single, 178, true, true, true,
+      '2018-02-23T18:25:43.511Z', 20, 8, 2, 'Here comes a long description of what I\'m doing on this website \n\n With a lot of text spread over multiple paragraphs.',
+      'All the weird and nerdy stuff comes here.', 6, 
+      [
+        new Picture(Guid.newGuid(), './assets/images/male-test.jpg', './assets/images/male-test.jpg'),
+        new Picture(Guid.newGuid(), './assets/images/male-test.jpg', './assets/images/male-test.jpg'),
+        new Picture(Guid.newGuid(), './assets/images/male-test.jpg', './assets/images/male-test.jpg')
+      ])      
+    ];
+
+    public static PROFILE_DETAIL_PRIVATE: ProfileDetailPrivate[] = [
+      new ProfileDetailPrivate(Guid.newGuid(), 'Emperor1',  Gender.Male, 36, new Picture(Guid.newGuid(), './assets/images/male-test.jpg', './assets/images/male-test.jpg'), 
+      'Belgium', ['Metalhead', 'Gamer', 'Traveller'], [Language.English, Language.Dutch], Orientation.Straight, RelationshipStatus.Single, 178, true, true, true,
+      '2018-02-23T18:25:43.511Z', 20, 8, 2, 'Here comes a long description of what I\'m doing on this website \n\n With a lot of text spread over multiple paragraphs.',
+      'All the weird and nerdy stuff comes here.', 6, 
+      [
+        new Picture(Guid.newGuid(), './assets/images/male-test.jpg', './assets/images/male-test.jpg'),
+        new Picture(Guid.newGuid(), './assets/images/male-test.jpg', './assets/images/male-test.jpg'),
+        new Picture(Guid.newGuid(), './assets/images/male-test.jpg', './assets/images/male-test.jpg')
+      ],
+      [new Picture(Guid.newGuid(), './assets/images/male-test.jpg', './assets/images/male-test.jpg'),
+      new Picture(Guid.newGuid(), './assets/images/male-test.jpg', './assets/images/male-test.jpg'),
+      new Picture(Guid.newGuid(), './assets/images/male-test.jpg', './assets/images/male-test.jpg'),
+      new Picture(Guid.newGuid(), './assets/images/male-test.jpg', './assets/images/male-test.jpg'),
+      new Picture(Guid.newGuid(), './assets/images/male-test.jpg', './assets/images/male-test.jpg'),
+      new Picture(Guid.newGuid(), './assets/images/male-test.jpg', './assets/images/male-test.jpg')],
+      ['Crazy', 'Insane']
+    ) 
+    ]     
 
     /*id: Guid;
     userName: string;

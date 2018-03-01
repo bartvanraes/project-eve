@@ -6,6 +6,15 @@
     *display: inline;
 }
 
+.picture {
+    width: 150px;
+    height: auto;
+    vertical-align: top;
+    display: inline-block;
+    *display: inline;
+    margin: 20px 20px 0 0;
+}
+
 .profile-card {
     width: 90%;
     float: right;

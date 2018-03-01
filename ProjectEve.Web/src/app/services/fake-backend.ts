@@ -102,7 +102,7 @@ export class FakeBackendInterceptor extends BaseService implements HttpIntercept
                 // check for fake auth token in header and return user if valid, this security is implemented server side in a real application
                 if (request.headers.get('Authorization') === 'Bearer fake-jwt-token') {
                      
-                    return Observable.of(new HttpResponse({ status: 200, body: MockedData.PROFILE_DETAIL[0] }));
+                    return Observable.of(new HttpResponse({ status: 200, body: MockedData.PROFILE_DETAIL_PRIVATE[0] }));
                 } else {
                     // return 401 not authorised if token is null or invalid
                     return Observable.throw('Unauthorised');
